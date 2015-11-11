@@ -1,0 +1,80 @@
+<html>
+<head>
+  <title>Inunavi</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <%= csrf_meta_tags %>
+
+</head>
+
+<nav>
+    <div class="nav-wrapper blue-grey">
+      <a href="/" class="brand-logo">Dogindex</a>
+      <%= link_to "Dogindex",dogs_path ,{ :'data-no-turbolink' =>  "true" ,:class =>"brand-logo" } %>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="about.html">Dogindexについて</a></li>
+        <li><a href="choice.html">犬の選び方</a></li>
+        <li><a href="goods.html">犬の迎え入れ方</a></li>
+        <li><a href="contact.html">お問い合わせ</a></li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="about.html">Dogindexについて</a></li>
+        <li><a href="choice.html">犬の選び方</a></li>
+        <li><a href="goods.html">犬の迎え入れ方</a></li>
+        <li><a href="contact.html">お問い合わせ</a></li>
+      </ul>
+    </div>
+</nav>
+
+<body onload="displayPieChart();">
+
+
+<%= yield %>
+
+</body>
+<footer class="page-footer blue-grey darken-2">
+          <div class="container">
+            <div class="row">
+              <div class="col l4 m12 s12">
+                <h5 class="white-text">サイトマップ</h5>
+                <ul>
+                  <%=link_to "Topページ" ,dogs_path ,{ :'data-no-turbolink' =>  "true" } %>
+                  <li><a class="grey-text text-lighten-3" href="#!">Dogindexについて</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">犬の選び方</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">犬の迎え入れ方</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">お問い合わせ
+                  </a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2015 Dogindex
+            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+          </div>
+</footer>
+
+<script>
+$(document).ready(function() {
+  // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+  $('.modal-trigger').leanModal();
+  $('.slider').slider({full_width: true});
+  $(".button-collapse").sideNav();
+  $('.parallax').parallax();
+  $(".btntoshow").displayPieChart();
+
+});
+</script>
+
+</body>
+</html>
+
+
+
+
+
+

@@ -1,0 +1,185 @@
+<div class="row">
+<div class="col s12 m4 l3">
+
+<div class="card">
+    <div class="card-image">
+     <%= image_tag "#{@dog.en_name}.jpg" %>
+      
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">
+      <h6><%= @dog.name %></h6></span>
+      <h6 class="grey-text"><%= @dog.en_name %></h6></span>
+      <br/>
+      <p class="grey-text">原産地　　：　<%= @dog.country %></p>
+      <p class="grey-text">起源　　　：　<%= @dog.origin %> </p>
+      <p class="grey-text">人気順　　：　<%= @dog.popularity %>位 
+       ※ JKC ranking2014 </p>
+      <p class="grey-text">平均寿命　：　<%= @dog.life %>歳</p>
+      <p class="left-align">平均価格　：　<%= @dog.price %>円</p>
+    
+    </div>
+</div>
+</div>
+
+<div class="col s12 m8 l3 center">
+
+<div class="card-panel blue-grey lighten-2 z-depth-2">
+<div class="card-content white-text">
+<div class="card-title">レーダーチャート</div>
+<canvas id="radarChart" height="260" width="260" ></canvas>
+</div>
+</div>
+
+<!-- <div class="your-class">
+  <div>your content</div>
+  <div>your content</div>
+  <div>your content</div>
+</div> -->
+      <div class="card-panel white left-align z-depth-2">
+          <span class="blue-grey-text"><%= @dog.maintext %>
+          </span>
+        </div>
+      
+
+</div>
+
+<div class="col s12 m8 l3 center">
+<ul class="collection with-header z-depth-2 cyan darken-1">
+        <li class="collection-header cyan darken-2 white-text"><h6>飼育・管理における注意点</h6></li>
+        <li class="collection-item white-text"><div class="left-align"><%= @dog.care %><a href="#!" class="secondary-content"></a></div></li>
+</ul>
+
+<ul class="collection with-header z-depth-2 green ">
+        <li class="collection-header green darken-3 white-text"><h6>気質・性格</h6></li>
+        <li class="collection-item white-text"><div class="left-align"><%= @dog.personality %><a href="#!" class="secondary-content"></a></div></li>
+</ul>
+
+<ul class="collection with-header z-depth-2 purple ">
+        <li class="collection-header purple darken-2 white-text"><h6>注意すべき病気</h6></li>
+        <li class="collection-item white-text"><div class="left-align"><%= @dog.disease %><a href="#!" class="secondary-content"></a></div></li>
+</ul>
+
+<ul class="collection with-header z-depth-2 pink lighten-2">
+        <li class="collection-header pink darken-2 white-text"><h6>環境適応</h6></li>
+        <li class="collection-item white-text"><div class="left-align"><%= @dog.environment %><a href="#!" class="secondary-content"></a></div></li>
+</ul>
+
+<ul class="collection with-header z-depth-2  teal">
+        <li class="collection-header  teal darken-3 white-text"><h6>必要運動量</h6></li>
+        <li class="collection-item white-text"><div class="left-align"><%= @dog.momentum %><a href="#!" class="secondary-content"></a></div></li>
+</ul>
+
+</div>
+
+<div class="col s12 m4 l3 center">
+<ul class="collection with-header z-depth-2 blue-grey lighten-2 ">
+        <li class="collection-header blue-grey darken-2 white-text"><h6>AD SPACE</h6></li>
+        <li class="collection-item white-text"><div>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+        <a href="#!" class="secondary-content"></a></div></li>
+</ul>
+</div>
+
+
+
+</div>
+
+
+<script>
+  function displayPieChart() {
+    var data = {
+        labels: ["お手入れ", "お散歩の時間","しつけやすさ","対人社交性","対犬社交性","環境適応"],
+        datasets: [
+            {
+                fillColor: "rgba(200,0,0,0.0)",
+                strokeColor: "white",
+                pointColor: "white",
+                pointStrokeColor: "white",
+                pointHighlightFill: "white",
+                pointHighlightStroke: "white",
+                data: [<%= @dog.care_point %>,<%= @dog.momentum_point %>,<%= @dog.discipline %>, <%= @dog.person_sociability %>,<%= @dog.dog_sociability %>,<%= @dog.cold_point %>]
+            }
+        ]
+    };
+    //オプション
+    var options = {
+    // 値のラインが棒グラフの値の上にかぶさるようにするか    
+    scaleOverlay : false,
+    // 値の開始値などを自分で設定するか
+    scaleOverride : true,
+    
+    // 以下の 3 オプションは scaleOverride: true の時に使用
+    // 値のステップ数
+    scaleSteps : 4,
+    // 値のステップする大きさ
+    scaleStepWidth : 1,
+    // 値の始まりの値
+    scaleStartValue : 0,
+    // ラベルのフォント
+    scaleFontFamily : "'Arial'",
+    // ラベルのフォントサイズ
+    scaleFontSize : 15,
+    // ラベルのフォントスタイル, normal, italic など
+    scaleFontStyle : "italic",
+    // ラベルの文字色
+    scaleFontColor : "#fff",    
+    // ラベルの背景色を塗りつぶすか
+    scaleShowLabelBackdrop : false,
+    // ラベルの背景色
+    scaleBackdropColor : "rgba(255, 255, 255)",
+    // ラベルの Padding 上下
+    scaleBackdropPaddingY : 5,
+    // ラベルの Padding 左右
+    scaleBackdropPaddingX : 5,
+    // 中央からポイントラベルに向かう線の表示
+    angleShowLineOut : true,
+    // 中央からポイントラベルに向かう線の色
+    angleLineColor : "rgba(255, 255, 255)",
+    // 中央からポイントラベルに向かう線の幅
+    angleLineWidth : 1,            
+    // ポイントラベルのフォント
+    pointLabelFontFamily : "'Arial'",
+    // ポイントラベルのフォントスタイル
+    pointLabelFontStyle : "normal",
+    // ポイントラベルのサイズ
+    pointLabelFontSize : 10,
+    // ポイントラベルの色
+    pointLabelFontColor : "#ddd",
+    // 値の点の表示
+    pointDot : true,
+    // 値の点の大きさ
+    pointDotRadius : 3,
+    // 値の点の線の幅
+    pointDotStrokeWidth : 1,
+    // データ部分の枠線の表示？変化がなかった
+    datasetStroke : true,
+    // データ部分の枠線の幅
+    datasetStrokeWidth : 2,
+    // データ部分の塗りつぶし？変化がなかった
+    datasetFill : true,
+    // 表示の時のアニメーション
+    animation : true,
+    // アニメーションの速度 ( ステップ数 )
+    animationSteps : 40,
+    // アニメーションの種類, 以下が用意されている
+    // linear, easeInQuad, easeOutQuad, easeInOutQuad, easeInCubic, easeOutCubic,
+    // easeInOutCubic, easeInQuart, easeOutQuart, easeInOutQuart, easeInQuint,
+    // easeOutQuint, easeInOutQuint, easeInSine, easeOutSine, easeInOutSine,
+    // easeInExpo, easeOutExpo, easeInOutExpo, easeInCirc, easeOutCirc, easeInOutCirc,
+    // easeInElastic, easeOutElastic, easeInOutElastic, easeInBack, easeOutBack,
+    // easeInOutBack, easeInBounce, easeOutBounce, easeInOutBounce
+    animationEasing : "easeOutQuad",
+    // アニメーション終了後に実行する処理
+    // animation: false の時にも実行されるようです
+    // e.g. onAnimationComplete : function() {alert('complete');}
+    onAnimationComplete : null
+}
+    var ctx = document.getElementById("radarChart").getContext("2d");
+    var radarChart = new Chart(ctx).Radar(data, options);
+  }
+</script>
+
+
+ 

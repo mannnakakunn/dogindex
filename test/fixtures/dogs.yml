@@ -1,0 +1,55 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  en_name: MyString
+  size: 1
+  group: 1
+  price: 1
+  maintext: MyString
+  care: MyString
+  care_point: 1
+  personality: MyString
+  personality_point: 1
+  momentum: MyString
+  momentum_point: 1
+  feature: MyString
+  disease: MyString
+  discipline: 1
+  life: 1
+  environment: MyString
+  sociability: 1
+  dog_socialability: 1
+  person_sociability: 1
+  cold_point: 1
+  hot_point: 1
+  watchdog_point: 1
+  country: MyString
+  origin: MyString
+
+two:
+  name: MyString
+  en_name: MyString
+  size: 1
+  group: 1
+  price: 1
+  maintext: MyString
+  care: MyString
+  care_point: 1
+  personality: MyString
+  personality_point: 1
+  momentum: MyString
+  momentum_point: 1
+  feature: MyString
+  disease: MyString
+  discipline: 1
+  life: 1
+  environment: MyString
+  sociability: 1
+  dog_socialability: 1
+  person_sociability: 1
+  cold_point: 1
+  hot_point: 1
+  watchdog_point: 1
+  country: MyString
+  origin: MyString

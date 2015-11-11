@@ -1,0 +1,170 @@
+<div class="row">
+<div class="col s12 m12 l12">
+<h5>１２０の犬種から、あなたにぴったりの愛犬を探しましょう</h5>
+</div>
+<%= search_form_for @search do |f| %>
+</div>
+
+<div class="row">
+<div class="col s12 m12 l12">
+<div class="field">
+    <h6>犬種名で検索する</h6>
+    <%= f.text_field :name_cont %>
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="col s12 m12 l12">
+<div class="field">
+<h6>希望条件で犬種を絞る</h6>
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="col s4">
+<%= f.check_box :care_point_lteq,{}, 1.4 ,false %>
+<%= f.label :care_point_lteq, "お手入れが簡単" %>
+</div>
+
+<div class="col s4">
+<%= f.check_box :personality_point_gteq,{}, 3 ,false %>
+<%= f.label :personality_point_gteq, "とっても賢い" %>
+</div>
+
+<div class="col s4">
+<%= f.check_box :momentum_point_lteq,{}, 2.2 ,false %>
+<%= f.label :momentum_point_lteq, "散歩が短い" %>
+</div>
+</div>
+
+<div class="row">
+<div class="col s4">
+<%= f.check_box :size_lteq,{}, 2.2 ,false %>
+<%= f.label :size_lteq, "小型犬がいい" %>
+</div>
+
+<div class="col s4">
+<%= f.check_box :size_eq,{}, 3 ,false %>
+<%= f.label :size_eq, "中型犬がいい" %></div>
+
+<div class="col s4">
+<%= f.check_box :size_gteq,{}, 3.8 ,false %>
+<%= f.label :size_gteq, "大型犬がいい" %>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<br/>
+<div class="row center">
+<div class="col s12">
+<div class="field">
+    <h6 class="left-align"> 予算で絞る</h6>
+    <%= f.text_field :price_lteq %>    
+</div>
+</div>
+</div>
+
+<div class="row center">
+<div class="col s12">
+<div class="field">
+
+   <%= f.submit "以上の条件で探す" ,class: "btn"%>
+
+</div>
+</div>
+</div>
+
+<% end %>
+
+<div class="divider"></div>
+<div class="section">
+
+<div class="row">
+<% @dogs.each do |dog| %>
+<div class="col s12 m4 l2">
+
+<div class="card z-depth-2">
+  <div class="card-image">
+     <%= image_tag "#{dog.en_name}.jpg" %>
+     <span class="card-title"><%= dog.name %></span>
+  </div>
+   <!-- Card Content -->
+   <div class="card-content">
+   
+   <h5 class="center-align blue-grey-text">人気順
+   <%= dog.popularity %>位
+   </h5>
+   <br/>
+
+   <p>体の大きさ　
+   <% size = dog.size %>
+   <% size.to_i.times{%>
+   <i class="tiny material-icons">grade</i>
+   <% }%>
+   </p>
+   
+   <p>被毛ケア　　
+   <% care = dog.care_point %>
+   <% care.to_i.times{%>
+   <i class="tiny material-icons">grade</i>
+   <% }%>
+   </p>
+
+   <p>散歩量　　　
+   <% move = dog.momentum_point %>
+   <% move.to_i.times{%> 
+   <i class="tiny material-icons">grade</i>
+   <% }%>
+   </p>
+
+   <p>しつけやすさ
+   <% wise = dog.discipline %>
+   <% wise.to_i.times{%>
+   <i class="tiny material-icons">grade</i>
+   <% }%>
+   </p>
+
+
+   <p>対人社交性　
+   <% peso = dog.person_sociability %>
+   <% peso.to_i.times{%> 
+   <i class="tiny material-icons">grade</i>
+   <% }%>
+   </p>
+
+   <p>対犬社交性　
+   <% doso = dog.dog_sociability %>
+   <% doso.to_i.times{%> 
+   <i class="tiny material-icons">grade</i>
+   <% }%>
+   </p>
+
+
+   <div class="card-action">
+   <h6>平均市場価格</h6>
+   <h4 class="center-align">¥<%= dog.price %></h4>
+   </div>
+
+<div class="row center">
+<%= link_to "詳細を見る",dog_path(dog.id) ,{ :'data-no-turbolink' =>  "true" ,:class =>"btn waves-effect waves-light" } %>
+</div>
+
+</div>
+</div>
+</div>
+
+<% end %>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<!-- Compiled and minified CSS -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css"> -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
+
+</div>
+</div>
