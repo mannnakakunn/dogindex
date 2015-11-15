@@ -1,10 +1,13 @@
 source 'https://rubygems.org'
+ruby '2.2.2'
 gem 'ransack'
 gem 'chartist-rails'
 gem 'jquery-turbolinks'
 gem 'hirb'
+gem "lazyload-rails"
 # gem 'materialize-sass'
 # gem 'sprockets', '2.12.4'
+# gem 'nokogiri','1.6.6.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.6'
@@ -22,7 +25,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

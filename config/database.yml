@@ -15,7 +15,7 @@ development:
   pool: 5
   username: root
   password: 
-  socket: /tmp/mysql.sock
+  host: localhost
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -26,13 +26,14 @@ test:
   database: dogindex_test
   pool: 5
   username: root
-  password: root
+  password: 
   socket: /tmp/mysql.sock
 
 production:
   adapter: mysql2
   encoding: utf8
-  username: sqale_0f40d3b356
-  password: 12861b9b23dc8ffa429b1165a7f68174d51068ee7f32144d
+  username: sqale_30dd431e48
+  password: 64c4babe9ae79a67a07fb9345d610b35c6acc0300006b364
   database: sqale_0f40d3b356
   host: mysql001.sqale.jp
+

@@ -16,3 +16,4 @@
 //= require jquery.turbolinks
 //= require turbolinks
 //= require chartist
+//= require_tree .  
